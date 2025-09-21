@@ -16,7 +16,9 @@ function isWeekend(dt: DateTime): boolean {
 
 export function isBusinessDay(dt: DateTime, holidays: Set<IsoDateOnly>): boolean {
 	if (isWeekend(dt)) return false;
-	return !holidays.has(dt.toISODate()!);
+	const d = dt.toISODate();
+	if (!d) return true;
+	return !holidays.has(d as IsoDateOnly);
 }
 
 function at(dt: DateTime, h: number, m = 0): DateTime {
