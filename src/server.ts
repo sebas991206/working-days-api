@@ -12,7 +12,7 @@ const holidayProvider: HolidayProvider = new CaptaHolidayProvider();
 
 app.get("/", (_req: Request, res: Response) => {
 	res.setHeader("Content-Type", "application/json; charset=utf-8");
-	res.json({ ok: true, ping: "Connect" });
+	res.json({ ok: true, ping: "pong" });
 });
 
 app.get("/api/calc", async (req: Request, res: Response) => {
