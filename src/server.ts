@@ -10,6 +10,11 @@ const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 const holidayProvider: HolidayProvider = new CaptaHolidayProvider();
 
+app.get("/", (_req: Request, res: Response) => {
+	res.setHeader("Content-Type", "application/json; charset=utf-8");
+	res.json({ ok: true, ping: "Connect" });
+});
+
 app.get("/api/calc", async (req: Request, res: Response) => {
 	res.setHeader("Content-Type", "application/json; charset=utf-8");
 
